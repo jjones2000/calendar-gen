@@ -19,14 +19,16 @@ int_to_month = {
     12: 'December'
 }
 
-
 days = [datetime.datetime(year, 1, 1) + datetime.timedelta(days=i) for i in range(366)]
-#days = [day for day in days if day.year == year and day.weekday() in (0, 6)]
-formatted = [[day.strftime("%Y-%m-%d"), int_to_weekday[day.weekday()]] for day in days]
-print(len(formatted))
-print(formatted[:10])
 
-current_month = days[0].month
+# old code used for initial testing
+#days = [day for day in days if day.year == year and day.weekday() in (0, 6)]
+#formatted = [[day.strftime("%Y-%m-%d"), int_to_weekday[day.weekday()]] for day in days]
+#print(len(formatted))
+#print(formatted[:10])
+
+# initialise month as 0 so it writes january
+current_month = 0
 
 with open("calendar" + str(year) + ".txt", "w", encoding="utf-8") as f:
     for i in days:
